@@ -1,13 +1,23 @@
 import { Link } from 'react-router-dom';
-
+import logoImg from '../assets/logo.png';
 export default function Footer() {
   return (
     <footer>
       <div className="footer-grid">
         <div className="footer-info">
-          <h2>ELoss Technologies</h2>
+          <img src={logoImg} alt="Eloss Technologies" style={{ height: '60px', marginBottom: '1rem', borderRadius: '50%' }} />
           <p>Empowering the next generation of digital architects and tech leaders right from the heart of Bangalore.</p>
-          <div className="social-links">
+          <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#666', lineHeight: '1.6' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '1.2rem' }}>location_on</span>
+              Bengaluru, Karnataka India
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '0.5rem' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '1.2rem' }}>mail</span>
+              elosstechnologies@gmail.com
+            </div>
+          </div>
+          <div className="social-links" style={{ marginTop: '1.5rem' }}>
             <a href="#" className="social-btn" title="LinkedIn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>

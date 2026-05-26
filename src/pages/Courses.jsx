@@ -26,57 +26,25 @@ export default function Courses() {
     <>
       <style>{`
         .courses-header {
-          padding: 140px 10% 40px;
+          padding: 140px 10% 100px;
+          text-align: center;
+          background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2000') center/cover;
+          color: #fff;
           position: relative;
-          background: #fff;
-          overflow: hidden;
-          display: flex;
-          gap: 4rem;
-          align-items: center;
-          border-bottom: 1px solid #eee;
         }
-        .courses-header::before {
-          content: "";
-          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background-image:
-            linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-          background-size: 40px 40px; z-index: 1;
-        }
-        .header-visual { position: relative; width: 45%; z-index: 3; }
-        .main-header-img {
-          width: 100%; height: 320px;
-          background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200');
-          background-size: cover; background-position: center;
-          border-radius: 20px; border: 1px solid #eee;
-          box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-        .header-content { width: 50%; position: relative; z-index: 3; }
         .courses-header h1 {
-          font-size: 4rem; font-weight: 900;
-          letter-spacing: -3px; line-height: 0.95;
-          margin-bottom: 2rem; color: #000;
+          font-size: 4rem;
+          font-weight: 900;
+          letter-spacing: -2px;
+          margin-bottom: 1rem;
+          color: #fff;
         }
-        .tech-badge {
-          position: absolute;
-          background: rgba(255,255,255,0.95);
-          backdrop-filter: blur(10px);
-          border: 1px solid #eee;
-          padding: 0.8rem 1.2rem; border-radius: 50px;
-          font-size: 0.65rem; font-weight: 800;
-          text-transform: uppercase; letter-spacing: 1px;
-          display: flex; align-items: center; gap: 10px;
-          box-shadow: 0 15px 35px rgba(0,0,0,0.08); z-index: 4;
-          animation: float-badge 5s ease-in-out infinite alternate;
-        }
-        .tech-badge .material-symbols-outlined { font-size: 1.4rem; }
-        .badge-tl { top: -20px; left: -20px; }
-        .badge-tr { top: 30px; right: -40px; animation-delay: -2s; }
-        .badge-bl { bottom: -25px; left: 20px; animation-delay: -4s; }
-        .badge-br { bottom: 50px; right: -30px; animation-delay: -6s; }
-        @keyframes float-badge {
-          from { transform: translateY(0) scale(1); }
-          to { transform: translateY(-10px) scale(1.05); }
+        .courses-header p {
+          color: #e0e0e0;
+          font-size: 1.1rem;
+          max-width: 600px;
+          margin: 0 auto;
+          text-align: center;
         }
         .courses-grid {
           display: grid;
@@ -122,42 +90,21 @@ export default function Courses() {
           font-size: 0.7rem; transition: 0.3s; align-self: center;
         }
         @media (max-width: 1024px) {
-          .courses-header { flex-direction: column-reverse; padding-top: 140px; text-align: center; }
-          .header-visual, .header-content { width: 100%; }
-          .main-header-img { height: 300px; }
           .courses-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
-          .courses-grid { grid-template-columns: 1fr; }
+          .courses-header { padding: 100px 5% 60px; }
+          .courses-header h1 { font-size: 2.5rem; }
+          .courses-header p { font-size: 1rem; }
+          .courses-grid { grid-template-columns: 1fr; padding: 40px 5%; }
         }
       `}</style>
 
       <header className="courses-header">
-        <div className="header-visual">
-          <div className="main-header-img" data-aos="zoom-in"></div>
-          <div className="tech-badge badge-tl" data-aos="fade-down" data-aos-delay="200">
-            <span className="material-symbols-outlined" style={{ color: '#00d2ff' }}>bolt</span>
-            Industry Integrated
-          </div>
-          <div className="tech-badge badge-tr" data-aos="fade-left" data-aos-delay="300">
-            <span className="material-symbols-outlined" style={{ color: '#ffd700' }}>verified</span>
-            Expert Certified
-          </div>
-          <div className="tech-badge badge-bl" data-aos="fade-up" data-aos-delay="400">
-            <span className="material-symbols-outlined" style={{ color: '#ff5722' }}>rocket_launch</span>
-            Career Focused
-          </div>
-          <div className="tech-badge badge-br" data-aos="fade-left" data-aos-delay="500">
-            <span className="material-symbols-outlined" style={{ color: '#3f51b5' }}>public</span>
-            Global Recognition
-          </div>
-        </div>
-        <div className="header-content">
-          <h1 data-aos="fade-left">Professional<br />Curriculum.</h1>
-          <p data-aos="fade-left" data-aos-delay="100" style={{ color: '#666' }}>
-            Expert-led technical training designed to bridge the gap between education and industrial performance. Join the visionaries of tomorrow.
-          </p>
-        </div>
+        <h1 data-aos="fade-up">Professional Courses.</h1>
+        <p data-aos="fade-up" data-aos-delay="100">
+          Expert-led technical training designed to bridge the gap between education and industrial performance.
+        </p>
       </header>
 
       <section className="courses-grid">

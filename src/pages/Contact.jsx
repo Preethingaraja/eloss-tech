@@ -107,7 +107,7 @@ export default function Contact() {
             </div>
             <div className="info-item">
               <span className="material-symbols-outlined">mail</span>
-              <div><h4>Digital Mail</h4><p>contact@elosstech.com</p></div>
+              <div><h4>Digital Mail</h4><p>elosstechnologies@gmail.com</p></div>
             </div>
           </div>
         </div>

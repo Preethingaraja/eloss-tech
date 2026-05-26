@@ -3,16 +3,14 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import techStudents from '../assets/tech_students_1779783922400.png';
+import techOffice from '../assets/tech_office_1779783947862.png';
+import abstractCode from '../assets/abstract_code_1779783974989.png';
+
 const carouselImages = [
-  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1920',
-  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1920',
-  'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1920',
-  'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1920',
-  'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920',
-  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1920',
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1920',
-  'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1920',
-  'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1920',
+  techStudents,
+  techOffice,
+  abstractCode,
 ];
 
 export default function Home() {
@@ -37,35 +35,42 @@ export default function Home() {
     <>
       <style>{`
         .hero {
-          height: 100vh;
+          height: 85vh;
+          min-height: 650px;
           display: flex;
           align-items: center;
           justify-content: flex-start;
           position: relative;
           overflow: hidden;
-          background: #fff;
-          padding-top: 180px;
-          padding-left: 2rem;
+          background: #000;
+          padding-top: 120px;
         }
         .hero-carousel {
           position: absolute;
           right: 0; top: 0;
-          width: 50%; height: 100%;
+          width: 100%; height: 100%;
           z-index: 1;
-          clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        .hero-carousel::after {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.85));
+          z-index: 2;
         }
         .hero-content {
-          width: 55%;
-          padding: 5%;
-          z-index: 2;
+          width: 100%;
+          max-width: 900px;
+          padding: 5% 8%;
+          z-index: 3;
           position: relative;
         }
         .hero h1 {
-          font-size: 5rem;
+          font-size: 5.5rem;
           font-weight: 900;
           line-height: 0.95;
           letter-spacing: -4px;
-          color: #000;
+          color: #fff;
           margin-bottom: 1rem;
         }
         .carousel-track {
@@ -82,20 +87,20 @@ export default function Home() {
         }
         .hero p {
           font-size: 1.1rem;
-          color: #666;
-          max-width: 550px;
-          margin-bottom: 2rem;
-          line-height: 1.4;
+          color: #eee;
+          max-width: 600px;
+          margin-bottom: 1.5rem;
+          line-height: 1.5;
           text-align: justify;
         }
         .preview-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2rem;
-          margin-top: 2.5rem;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 3rem;
+          margin-top: 1.5rem;
         }
-        .stat-box h3 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; }
-        .stat-box p { font-weight: 700; text-transform: uppercase; font-size: 0.7rem; color: #999; letter-spacing: 2px; }
+        .stat-box h3 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; color: #fff; }
+        .stat-box p { font-weight: 700; text-transform: uppercase; font-size: 0.7rem; color: #aaa; letter-spacing: 2px; }
         .floating-shape {
           position: absolute;
           background: rgba(0,0,0,0.03);
@@ -116,11 +121,32 @@ export default function Home() {
           33% { transform: translate(30px, 50px) rotate(5deg); }
           66% { transform: translate(-20px, 20px) rotate(-5deg); }
         }
+        .hero-buttons {
+          display: flex; gap: 1.5rem; margin-bottom: 2rem;
+        }
+        .btn-cta-white {
+          background: #fff; color: #000; padding: 0.6rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; text-decoration: none; display: inline-flex; justify-content: center; align-items: center; width: max-content; white-space: nowrap;
+        }
+        .btn-cta-white:hover {
+          background: #e2e8f0;
+        }
+        .btn-large {
+          padding: 1.2rem 4rem;
+          font-size: 1rem;
+        }
+        .btn-cta-alt {
+          background: transparent; color: #fff; border: 2px solid #fff; padding: 0.6rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; text-decoration: none; display: inline-flex; justify-content: center; align-items: center; width: max-content; white-space: nowrap;
+        }
+        .btn-cta-alt:hover {
+          background: #fff; color: #000;
+        }
         @media (max-width: 1024px) {
-          .hero { text-align: center; justify-content: center; }
-          .hero-content { width: 100%; padding: 0 5%; }
-          .hero-carousel { display: none; }
+          .hero { text-align: center; justify-content: center; min-height: 100vh; height: auto; padding-top: 120px; padding-bottom: 60px; }
+          .hero-content { width: 100%; padding: 0 5%; display: flex; flex-direction: column; align-items: center; }
+          .hero-carousel { width: 100%; height: 100%; margin-top: 0; position: absolute; top: 0; left: 0; }
           .hero h1 { font-size: 4rem; }
+          .hero p { text-align: center; }
+          .hero-buttons { justify-content: center; flex-wrap: wrap; }
         }
 
         /* --- Ecosystem Grid --- */
@@ -277,25 +303,49 @@ export default function Home() {
           50% { transform: translate(20px, -30px) scale(1.05); }
         }
 
+        .integration-features {
+          display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left;
+        }
+        .integration-heading {
+          font-size: 4rem; font-weight: 900; letter-spacing: -3px; line-height: 1; margin-bottom: 2rem;
+        }
+        .cta-heading {
+          font-size: 4.5rem; font-weight: 900; letter-spacing: -3px; margin-bottom: 2rem;
+        }
+
         @media (max-width: 1024px) {
           .ecosystem-grid { grid-template-columns: 1fr; }
           .integration-section { flex-direction: column; text-align: center; }
           .integration-visual, .integration-content { width: 100%; }
           .tech-orb { width: 300px; height: 300px; margin: 0 auto; }
           .marquee-item { font-size: 3rem; }
+          .integration-features { text-align: center; }
+        }
+        
+        @media (max-width: 768px) {
+          .preview-grid { justify-content: space-between; gap: 0; flex-wrap: nowrap; width: 100%; }
+          .stat-box h3 { font-size: 1.6rem; }
+          .stat-box p { font-size: 0.5rem; letter-spacing: 0; }
+          .hero h1 { font-size: 3.2rem; margin-bottom: 0.8rem; }
+          .hero p { font-size: 1rem; margin-bottom: 1.2rem; }
+          .hero-buttons { margin-bottom: 1.5rem; gap: 1rem; }
+          .btn-large { padding: 1rem 2rem; width: max-content; display: inline-block; margin: 0 auto; text-align: center; white-space: nowrap; }
+          .integration-features { grid-template-columns: 1fr; }
+          .cta-heading { font-size: 3.2rem; }
+          .ecosystem-header h2 { font-size: 2.8rem; }
+          .integration-heading { font-size: 3rem; }
+          .hero { padding-top: 140px; height: auto; padding-bottom: 60px; }
         }
       `}</style>
 
       <section className="hero">
-        <div className="floating-shape shape-1"></div>
-        <div className="floating-shape shape-2"></div>
 
         <div className="hero-content" data-aos="fade-right">
           <h1>Future<br />Focused.</h1>
           <p>Empowering the next generation of digital architects through elite technical education and industry-integrated training. Transforming ambitious minds into global tech leaders, right from the heart of Bangalore.</p>
-          <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '3rem' }}>
-            <Link to="/courses" className="btn-cta">Explore Programs</Link>
-            <Link to="/contact" className="btn-cta" style={{ background: 'transparent', color: '#000', border: '2px solid #000' }}>Get Started</Link>
+          <div className="hero-buttons">
+            <Link to="/courses" className="btn-cta-white">Explore Programs</Link>
+            <Link to="/contact" className="btn-cta-alt">Get Started</Link>
           </div>
 
           <div className="preview-grid">
@@ -365,11 +415,11 @@ export default function Home() {
         </div>
         <div className="integration-content" data-aos="fade-left">
           <span className="section-tag">Industrial Synergy</span>
-          <h2 style={{ fontSize: '4rem', fontWeight: 900, letterSpacing: '-3px', lineHeight: 1, marginBottom: '2rem' }}>Engineered for<br />the 2030 Landscape.</h2>
+          <h2 className="integration-heading">Engineered for<br />the 2030 Landscape.</h2>
           <p style={{ fontSize: '1.2rem', color: '#444', textAlign: 'justify', lineHeight: 1.8, marginBottom: '3rem' }}>
             We don't just teach code; we architect careers. Our methodology integrates current industrial workflows directly into the learning process, ensuring every Eloss graduate is "Day One Ready" for the world's most demanding tech environments.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+          <div className="integration-features">
             <div>
               <h4 style={{ fontWeight: 900, textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '2px', marginBottom: '1rem' }}>Expert-Led</h4>
               <p style={{ fontSize: '0.9rem', color: '#666' }}>Guided by senior architects with decades of experience in global tech delivery.</p>
@@ -387,11 +437,11 @@ export default function Home() {
         <div className="floating-shape" style={{ width: '600px', height: '600px', bottom: '-300px', left: '50%', transform: 'translateX(-50%)', opacity: 0.1, background: '#00d2ff' }}></div>
         <div data-aos="zoom-in" style={{ position: 'relative', zIndex: 2 }}>
           <span className="section-tag" style={{ color: '#00d2ff' }}>Direct Trajectory</span>
-          <h2 style={{ fontSize: '4.5rem', fontWeight: 900, letterSpacing: '-3px', marginBottom: '2rem' }}>Begin Your<br />Transformation.</h2>
+          <h2 className="cta-heading">Begin Your<br />Transformation.</h2>
           <p style={{ maxWidth: '700px', margin: '0 auto 3rem', color: '#aaa', fontSize: '1.1rem' }}>
             The future belongs to those who build it. Join Eloss Technologies today and architect your legacy in the global digital landscape.
           </p>
-          <Link to="/contact" className="btn-cta" style={{ background: '#fff', color: '#000', padding: '1.2rem 4rem', fontSize: '1rem' }}>Apply for Admission</Link>
+          <Link to="/contact" className="btn-cta-white btn-large">Apply for Admission</Link>
         </div>
       </section>
     </>

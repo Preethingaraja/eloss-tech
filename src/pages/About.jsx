@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import aboutHeroImg from '../assets/about_hero.png';
+import aboutMissionImg from '../assets/about_mission.png';
 export default function About() {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true, offset: 100 });
@@ -126,7 +127,7 @@ export default function About() {
           border-radius: 20px; transition: 0.3s;
         }
         .adv-item:hover { background: rgba(255,255,255,0.05); border-color: #00d2ff; transform: translateX(10px); }
-        .adv-icon { width: 50px; height: 50px; background: #fff; color: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .adv-icon { width: 50px; height: 50px; background: #fff; color: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .adv-text h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
         .adv-text p { font-size: 0.9rem; color: #888; text-align: justify; margin: 0; }
         .commitment-card {
@@ -163,12 +164,23 @@ export default function About() {
           from { transform: translate(0, 0); }
           to { transform: translate(100px, 100px); }
         }
+        .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .journey-container { display: flex; gap: 6rem; align-items: flex-start; }
+        .journey-left { width: 40%; position: sticky; top: 120px; }
+        .journey-right { width: 60%; }
+        .edge-heading { font-size: 4rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 3rem; }
         @media (max-width: 1024px) {
-          .about-hero, .mission-grid, .cap-grid { flex-direction: column; grid-template-columns: 1fr; }
+          .about-hero, .mission-grid, .cap-grid, .pillars-grid { flex-direction: column; grid-template-columns: 1fr; }
           .hero-text, .hero-visual { width: 100%; }
           .about-hero h1 { font-size: 3.5rem; }
+          .journey-container { flex-direction: column; gap: 3rem; }
+          .journey-left, .journey-right { width: 100%; position: relative; top: 0; }
           .edge-container { flex-direction: column; }
           .edge-content, .edge-visual { width: 100%; }
+          .edge-bg-text { font-size: 6rem; letter-spacing: 5px; top: 10%; transform: rotate(0); left: 0; }
+        }
+        @media (max-width: 768px) {
+          .edge-heading { font-size: 2.8rem; }
         }
       `}</style>
 
@@ -183,12 +195,12 @@ export default function About() {
           </div>
           <h1 data-aos="fade-right" data-aos-delay="100">Visionary<br />Architecture.</h1>
           <p data-aos="fade-right" data-aos-delay="200">
-            At ELOSS Technologies, we're not just a technology company; we're your dedicated partner in navigating the complexities of the digital world. Based in the heart of Bengaluru, we bring years of collective expertise in software development, IT consulting, and digital transformation to businesses across the globe. Our passion lies in helping organizations harness the power of technology to unlock new opportunities and achieve ambitious goals.
+            At ELOSS Technologies, we're not just a technology company; we're your dedicated partner in navigating the complexities of the digital world. Based in Bengaluru, Karnataka, India, we bring years of collective expertise in software development, IT consulting, and digital transformation to businesses across the globe. Our passion lies in helping organizations like yours harness the power of technology to unlock new opportunities, streamline operations, and achieve ambitious goals.
           </p>
         </div>
         <div className="hero-visual" data-aos="zoom-in">
           <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+            src={aboutHeroImg}
             alt="Architecture"
             style={{ width: '100%', borderRadius: '24px', boxShadow: '0 40px 80px rgba(0,0,0,0.1)', border: '1px solid #eee' }}
           />
@@ -200,7 +212,7 @@ export default function About() {
         <div className="mission-grid">
           <div className="mission-visual" data-aos="fade-right">
             <img
-              src="https://images.unsplash.com/photo-1705635821033-30f2f4906c91?w=800&auto=format&fit=crop&q=80"
+              src={aboutMissionImg}
               alt="Empowering Growth"
               style={{ width: '100%', height: '450px', objectFit: 'cover', borderRadius: '20px', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', border: '1px solid #eee' }}
             />
@@ -221,15 +233,15 @@ export default function About() {
           <span className="section-tag" data-aos="fade-up">Strategic Imperative</span>
           <h2 data-aos="fade-up" data-aos-delay="100" style={{ fontSize: '3.5rem', fontWeight: 900, letterSpacing: '-2px' }}>What We Do.</h2>
           <p data-aos="fade-up" data-aos-delay="200" style={{ marginTop: '2rem', color: '#666', fontSize: '1.1rem' }}>
-            We understand that in today's fast-paced environment, technology is not just a support function it's a strategic imperative. We offer a comprehensive suite of services designed to address your unique needs.
+            We understand that in today's fast-paced environment, technology is not just a support function—it's a strategic imperative. That's why we offer a comprehensive suite of services designed to address your unique needs:
           </p>
         </div>
         <div className="cap-grid">
           {[
             { num: '01', icon: 'code', color: '#00d2ff', title: 'Software Solutions', desc: 'From bespoke application development to enterprise-level software integration, we build robust and scalable solutions tailored to your specific requirements.' },
-            { num: '02', icon: 'dns', color: '#4caf50', title: 'IT Infrastructure', desc: 'We design, implement, and manage secure and efficient IT infrastructures that form the backbone of your operations, ensuring seamless connectivity.' },
-            { num: '03', icon: 'psychology', color: '#ffc107', title: 'Tech Consultancy', desc: 'Our seasoned consultants provide strategic guidance, helping you make informed technology decisions that align with your business objectives.' },
-            { num: '04', icon: 'rocket_launch', color: '#ff5722', title: 'Digital Transformation', desc: 'We guide you through the journey of embracing digital technologies, optimizing processes, and fostering a culture of innovation.' },
+            { num: '02', icon: 'dns', color: '#4caf50', title: 'Robust IT Infrastructure', desc: 'We design, implement, and manage secure and efficient IT infrastructures that form the backbone of your operations, ensuring seamless connectivity and optimal performance.' },
+            { num: '03', icon: 'psychology', color: '#ffc107', title: 'Expert Tech Consultancy', desc: 'Our seasoned consultants provide strategic guidance, helping you make informed technology decisions that align with your business objectives and drive sustainable growth.' },
+            { num: '04', icon: 'rocket_launch', color: '#ff5722', title: 'Digital Transformation', desc: 'We guide you through the journey of embracing digital technologies, optimizing processes, and fostering a culture of innovation to revolutionize your business model.' },
           ].map((cap, i) => (
             <div className="cap-card" key={i} data-aos="fade-up" data-aos-delay={i % 2 === 1 ? '100' : '0'}>
               <span className="cap-number">{cap.num}</span>
@@ -247,7 +259,7 @@ export default function About() {
       <section style={{ padding: '80px 5%', background: '#000', color: '#fff', overflow: 'hidden' }}>
         <span className="section-tag" data-aos="fade-up">Foundation</span>
         <h2 data-aos="fade-up" data-aos-delay="100" style={{ fontSize: '3.5rem', fontWeight: 900, letterSpacing: '-2px', marginBottom: '3rem' }}>Pillars of Excellence.</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+        <div className="pillars-grid">
           {[
             { icon: 'military_tech', color: '#00d2ff', title: 'Uncompromising Integrity', desc: 'We build trust through transparent operations and ethical engineering, ensuring every partnership is founded on a rock-solid moral core.', delay: '200' },
             { icon: 'biotech', color: '#4caf50', title: 'Relentless Innovation', desc: 'Stagnation is not an option. We constantly re-evaluate current technologies to bridge the gap between traditional education and future tech.', delay: '300' },
@@ -265,15 +277,15 @@ export default function About() {
 
       {/* Journey Timeline */}
       <section style={{ padding: '80px 5%', background: '#fff', position: 'relative' }}>
-        <div style={{ display: 'flex', gap: '6rem', alignItems: 'flex-start' }}>
-          <div style={{ width: '40%', position: 'sticky', top: '120px' }}>
+        <div className="journey-container">
+          <div className="journey-left">
             <span className="section-tag">Evolution</span>
             <h2 style={{ fontSize: '3.5rem', fontWeight: 900, letterSpacing: '-2px', lineHeight: 1 }}>Our Journey Through Time.</h2>
             <div style={{ marginTop: '2rem', padding: '2rem', background: '#f9f9f9', borderRadius: '20px', border: '1px solid #eee' }}>
               <p style={{ fontStyle: 'italic', color: '#666' }}>"From a small vision in Bengaluru to a global technological partner. Every milestone is a testament to our commitment."</p>
             </div>
           </div>
-          <div style={{ width: '60%' }}>
+          <div className="journey-right">
             {[
               { year: '2018', title: 'The Blueprint', desc: 'ELOSS Technologies was founded in Bengaluru with a singular vision: to revolutionize technical training through industrial integration.' },
               { year: '2020', title: 'Digital Pivot', desc: 'Navigating the global shift, we expanded our consulting arm, helping 200+ businesses achieve digital transformation during critical times.' },
@@ -296,7 +308,7 @@ export default function About() {
         <div className="edge-container">
           <div className="edge-content" data-aos="fade-right">
             <span className="section-tag" style={{ color: '#00d2ff' }}>The Eloss Edge</span>
-            <h2 style={{ fontSize: '4rem', fontWeight: 900, color: '#fff', lineHeight: 1, marginBottom: '3rem' }}>Engineered for<br />Superiority.</h2>
+            <h2 className="edge-heading">Engineered for<br />Superiority.</h2>
             <div className="advantage-stack">
               <div className="adv-item">
                 <div className="adv-icon"><span className="material-symbols-outlined">verified</span></div>

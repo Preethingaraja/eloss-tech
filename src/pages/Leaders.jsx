@@ -4,9 +4,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const leaders = [
-  { name: 'Medavaram Hrishikesh', role: 'Chief Executive Officer' },
-  { name: 'Naveen Gobidesi', role: 'Chief Technology Officer' },
-  { name: 'Sudhakar Rao', role: 'Head of Operations' },
+  { name: 'Medavaram Hrishikesh', role: 'Founder / C.E.O / President' },
+  { name: 'Naveen Gobidesi', role: 'Accounts Executive' },
+  { name: 'Employer Name', role: 'Designation' },
 ];
 
 export default function Leaders() {
@@ -18,17 +18,16 @@ export default function Leaders() {
     <>
       <style>{`
         .leaders-hero {
-          padding: 100px 5% 40px;
-          background: #fff;
+          padding: 140px 10% 100px;
+          background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2000') center/cover;
           text-align: center;
           position: relative;
-          overflow: hidden;
-          border-bottom: 1px solid #eee;
+          color: #fff;
         }
         .glass-badge {
-          background: rgba(0,0,0,0.03);
+          background: rgba(255,255,255,0.1);
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(0,0,0,0.05);
+          border: 1px solid rgba(255,255,255,0.2);
           padding: 0.6rem 1.5rem;
           border-radius: 50px;
           display: inline-flex;
@@ -38,7 +37,7 @@ export default function Leaders() {
           font-size: 0.65rem;
           text-transform: uppercase;
           letter-spacing: 3px;
-          color: #000;
+          color: #fff;
           margin-bottom: 2rem;
         }
         .leaders-hero h1 {
@@ -47,7 +46,7 @@ export default function Leaders() {
           letter-spacing: -3px;
           line-height: 1;
           margin: 0;
-          color: #000;
+          color: #fff;
         }
         .leaders-hero h1 span { color: #eee; margin: 0 15px; }
         .hero-beam {
@@ -154,12 +153,18 @@ export default function Leaders() {
           letter-spacing: 15px;
           display: flex; justify-content: center;
         }
+        .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; text-align: left; }
+        .philosophy-heading { font-size: 4rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 2rem; line-height: 1; }
         @media (max-width: 1024px) {
           .leaders-grid { grid-template-columns: 1fr 1fr; }
+          .philosophy-bg-text { font-size: 6rem; letter-spacing: 5px; top: 10%; transform: rotate(0); left: 0; }
         }
         @media (max-width: 768px) {
-          .leaders-grid { grid-template-columns: 1fr; }
-          .leaders-hero h1 { font-size: 3.5rem; }
+          .leaders-hero { padding: 100px 5% 60px; }
+          .leaders-hero h1 { font-size: 2.5rem; }
+          .leaders-grid { grid-template-columns: 1fr; padding: 40px 5%; }
+          .philosophy-grid { grid-template-columns: 1fr; gap: 2rem; }
+          .philosophy-heading { font-size: 2.5rem; }
         }
       `}</style>
 
@@ -197,11 +202,11 @@ export default function Leaders() {
         <div className="philosophy-bg-text">MINDSET</div>
         <div style={{ maxWidth: '900px', position: 'relative', zIndex: 2 }}>
           <span className="section-tag" style={{ color: '#00d2ff', marginBottom: '2rem' }}>Strategic Intent</span>
-          <h2 style={{ fontSize: '4rem', fontWeight: 900, letterSpacing: '-2px', marginBottom: '2rem', lineHeight: 1 }}>Infrastructure for the Mind.</h2>
+          <h2 className="philosophy-heading">Infrastructure for the Mind.</h2>
           <p style={{ color: '#888', fontSize: '1.2rem', lineHeight: 1.8, textAlign: 'justify', marginBottom: '4rem' }}>
             Our leadership doesn't just manage people; we architect growth. We believe that true technology leadership requires a balance of raw technical precision and humanist empathy. Every decision we make is designed to strengthen the digital foundations of our students and partners, ensuring they are built to last in an ever-shifting global landscape.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', textAlign: 'left' }}>
+          <div className="philosophy-grid">
             <div data-aos="fade-up">
               <h4 style={{ color: '#fff', marginBottom: '1rem', fontWeight: 800, letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ width: '20px', height: '2px', background: '#00d2ff', display: 'inline-block' }}></span>
