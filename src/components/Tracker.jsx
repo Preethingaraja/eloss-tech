@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
-const API = `http://${window.location.hostname}:5000/api`;
+import { API_URL as API } from '../config';
 
 export default function Tracker() {
   const location = useLocation();

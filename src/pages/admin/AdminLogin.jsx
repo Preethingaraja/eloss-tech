@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { API_URL as API } from '../../config';
 
-const API = `http://${window.location.hostname}:5000/api`;
 
 export default function AdminLogin() {
   const [form, setForm] = useState({ username: '', password: '' });

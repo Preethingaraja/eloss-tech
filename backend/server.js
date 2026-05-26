@@ -8,12 +8,17 @@ import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 const server = http.createServer(app);
+
+// Allow frontend origin — set CORS_ORIGIN env var in Render to your Vercel URL
+const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
+
 const io = new Server(server, {
-  cors: { origin: '*', methods: ['GET', 'POST', 'PUT', 'DELETE'] }
+  cors: { origin: CORS_ORIGIN, methods: ['GET', 'POST', 'PUT', 'DELETE'] }
 });
 
-app.use(cors());
+app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
+
 
 // ─── DB Pool ────────────────────────────────────────────
 const pool = mysql.createPool({

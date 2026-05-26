@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
-
-const API = `http://${window.location.hostname}:5000/api`;
+import { API_URL as API } from '../config';
 
 export default function Login() {
   const [mode, setMode] = useState('login'); // 'login' | 'signup'

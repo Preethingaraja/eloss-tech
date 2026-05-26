@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
-
-const BACKEND = `http://${window.location.hostname}:5000`;
+import { BACKEND_URL as BACKEND } from '../config';
 
 export default function Chatbot() {
   const [open, setOpen]           = useState(false);

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
+import { BACKEND_URL as BACKEND, API_URL } from '../../config';
 
-const BACKEND = `http://${window.location.hostname}:5000`;
 
 export default function AdminLiveChat() {
   const [sessions,  setSessions]  = useState([]);

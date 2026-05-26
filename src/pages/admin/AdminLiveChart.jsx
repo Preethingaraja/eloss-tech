@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-
-const API = `http://${window.location.hostname}:5000/api`;
+import { API_URL as API } from '../../config';
 
 function ProgressBar({ value, max, color }) {
   const pct = max ? Math.round((value / max) * 100) : 0;
