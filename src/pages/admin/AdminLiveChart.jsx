@@ -102,6 +102,11 @@ export default function AdminLiveChart() {
         .loading-state { padding: 4rem; text-align: center; color: #94a3b8; font-weight: 600; }
         
         @media(max-width: 1200px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } .charts-main { grid-template-columns: 1fr; } }
+        @media(max-width: 600px) {
+          .kpi-row { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+          .chart-box { padding: 1.2rem; border-radius: 16px; }
+          .kpi-card { padding: 1.2rem; gap: 1rem; }
+        }
       `}</style>
 
       {/* KPI Cards */}

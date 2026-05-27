@@ -184,6 +184,10 @@ export default function AdminDashboard() {
           .adm-main { margin-left: 0; padding: 1rem; }
           .sidebar-overlay.open { display: block; }
         }
+        @media(max-width: 600px) {
+          .adm-top-header { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+          .adm-card-container { padding: 1rem; border-radius: 16px; }
+        }
       `}</style>
 
       <div className="adm-layout">
